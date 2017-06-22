@@ -1,37 +1,26 @@
-## Welcome to GitHub Pages
 
-You can use the [editor on GitHub](https://github.com/ameet2r/MazeGenerator/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+	<p>
+		Please input the width and height for the maze you want created and solved:
+	</p>
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+	<!--Grab maze width and height from user-->
+	Width: <input type="text" name="width" value="5" id="width">
+	<br>
+	Height: <input type="text" name="height" value="5" id="height">
+	<br>
+	<br>
+	<input id="submitButton" type="submit" value="Submit" onclick="createMaze()">
+	<br>
+	<br>
+	<pre id="target"></pre>
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ameet2r/MazeGenerator/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+	<script type="text/javascript" src="../target/js/Maze.js"></script>
+<script>
+	function createMaze() {
+        var width = parseInt(document.getElementById("width").value);
+        var height = parseInt(document.getElementById("height").value);
+        var maze = new Maze(width, height, false);
+        var mazeAsString = maze.getGeneratedMazeAsString();
+        document.getElementById("target").innerHTML = mazeAsString;
+	}
+</script>
