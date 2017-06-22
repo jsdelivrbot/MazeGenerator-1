@@ -17,7 +17,7 @@ Height: <input type="text" name="height" value="5" id="height">
 This was created using the JSweet Transpiler.
 </p>
 
-<script type="text/javascript" src="../target/js/Maze.js"></script>
+<script type="text/javascript" src="/target/js/Maze.js"></script>
 <script>
 	function createMaze() {
         	var width = parseInt(document.getElementById("width").value);
