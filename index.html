@@ -1,5 +1,6 @@
 <html>
 <head>
+<link rel="stylesheet" href="index.css">
 <script type="text/javascript" src="j4ts-0.2.0-SNAPSHOT/bundle.js"></script>
 <script type="text/javascript" src="jquery-1.10.0-SNAPSHOT/jquery.min.js"></script>
 </head>
@@ -7,11 +8,11 @@
 <body>
 	<p>
 		Please input the width and height for the maze you want created and solved:
+		Minimum size of the maze: 3x3
 	</p>
 
 	<!--Grab maze width and height from user-->
 	Width: <input type="number" name="width" value="5" id="width"> <p id="widthParagraph"></p>
-	<br>
 	Height: <input type="number" name="height" value="5" id="height"> <p id="heightParagraph"></p>
 	<br>
 	<br>
@@ -27,15 +28,15 @@
         	var width = parseInt(document.getElementById("width").value);
         	var height = parseInt(document.getElementById("height").value);
 
-		if(width <== 0) {
-			document.getElementById("widthParagraph").innerHTML = "Only values greater than 0";
+		if(width <= 2) {
+			document.getElementById("widthParagraph").innerHTML = "Only values greater than 2";
 		}
 
-		if(height <== 0) {
-			document.getElementById("heightParagraph").innerHTML = "Only values greater than 0";
+		if(height <= 2) {
+			document.getElementById("heightParagraph").innerHTML = "Only values greater than 2";
 		}
 
-		if(width > 0 && height > 0) {
+		if(width > 2 && height > 2) {
 			document.getElementById("widthParagraph").innerHTML = " ";
 			document.getElementById("heightParagraph").innerHTML = " ";
         		var maze = new Maze(width, height, false);
