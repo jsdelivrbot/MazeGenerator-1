@@ -10,9 +10,9 @@
 	</p>
 
 	<!--Grab maze width and height from user-->
-	Width: <input type="number" name="width" value="5" id="width">
+	Width: <input type="number" name="width" value="5" id="width"> <p id="widthParagraph"></p>
 	<br>
-	Height: <input type="number" name="height" value="5" id="height">
+	Height: <input type="number" name="height" value="5" id="height"> <p id="heightParagraph"></p>
 	<br>
 	<br>
 	<input id="submitButton" type="submit" value="Submit" onclick="createMaze()">
@@ -24,12 +24,24 @@
 		src="https://cdn.rawgit.com/ameet2r/MazeGenerator/e7b00832/target/js/Maze.js"></script>
 <script>
 	function createMaze() {
-        var width = parseInt(document.getElementById("width").value);
-        var height = parseInt(document.getElementById("height").value);
+        	var width = parseInt(document.getElementById("width").value);
+        	var height = parseInt(document.getElementById("height").value);
 
-        var maze = new Maze(width, height, false);
-        var mazeAsString = maze.getGeneratedMazeAsString();
-        document.getElementById("target").innerHTML = mazeAsString;
+		if(width <= 0) {
+			document.getElementById("widthParagraph").innerHTML = "Only values greater than 0";
+		}
+
+		if(height <= 0) {
+			document.getElementById("heightParagraph").innerHTML = "Only values greater than 0";
+		}
+
+		if(width > 0 && height > 0) {
+			document.getElementById("widthParagraph").innerHTML = "";
+			document.getElementById("heightParagraph").innerHTML = "";
+        		var maze = new Maze(width, height, false);
+        		var mazeAsString = maze.getGeneratedMazeAsString();
+        		document.getElementById("target").innerHTML = mazeAsString;
+		}
 	}
 
 </script>
