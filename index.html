@@ -27,17 +27,17 @@
         	var width = parseInt(document.getElementById("width").value);
         	var height = parseInt(document.getElementById("height").value);
 
-		if(width <= 0) {
+		if(width <== 0) {
 			document.getElementById("widthParagraph").innerHTML = "Only values greater than 0";
 		}
 
-		if(height <= 0) {
+		if(height <== 0) {
 			document.getElementById("heightParagraph").innerHTML = "Only values greater than 0";
 		}
 
 		if(width > 0 && height > 0) {
-			document.getElementById("widthParagraph").innerHTML = "";
-			document.getElementById("heightParagraph").innerHTML = "";
+			document.getElementById("widthParagraph").innerHTML = " ";
+			document.getElementById("heightParagraph").innerHTML = " ";
         		var maze = new Maze(width, height, false);
         		var mazeAsString = maze.getGeneratedMazeAsString();
         		document.getElementById("target").innerHTML = mazeAsString;
